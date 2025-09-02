@@ -1,11 +1,33 @@
+<!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<link href="/public/reset.css" rel="stylesheet" />
 		<link href="/public/main.css" rel="stylesheet" />
+		<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"></script>
 		<title>{% block title %}{% endblock %}</title>
 	</head>
 	<body>
-		{% block content %}{% endblock %}
+		<header>
+			<div>
+				<img src="/public/img/kristian.jpg" alt="manga-style headshot" />
+				<aside>
+					<h3>Kristian Quirapas</h3>
+					<p>Deeply involved in blockchain, distributed systems, p2p networking, local-first, node architecture, computer over data, archival infrastructure, and baremetal systems administration.</p>
+					<p>On the side, I engage the world of atoms with autonomous robotics, reinforcement learning, computer vision, electronics, embedded systems, and woodworking (welding soon for metal fabrication).</p>
+				</aside>
+			</div>
+		</header>
+		<nav>
+			<span><a href="/">home</a></span>
+			<span><a href="/software">software</a></span>
+			<span><a href="/" class="disable">hardware (wip)</a></span>
+			<span><a href="/" class="disable">research (wip)</a></span>
+			<span><a href="/" class="disable">wood (wip)</a></span>
+		</nav>
+		<section>{% block content %}{% endblock %}</section>
+		<footer>
+			<span>&copy; <span hx-get="/api/year" hx-trigger="load" hx-swap="outerHTML"></span></span>
+		</footer>
 	</body>
 </html>

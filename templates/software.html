@@ -1,0 +1,10 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}Kristian Quirapas{% endblock %}
+
+{% block content %}
+	<h1 class="red-text">Howdy! {{name}}</h1>
+	<p>{{counter}}</p>
+	<button hx-get="/clicked" hx-swap="outerHTML">Counter</button>
+{% endblock %}
