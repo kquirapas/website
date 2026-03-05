@@ -89,7 +89,7 @@ async fn software() -> impl IntoResponse {
 }
 
 async fn current_year() -> &'static str {
-    "2025"
+    "2026"
 }
 
 struct HtmlTemplate<T>(T);
