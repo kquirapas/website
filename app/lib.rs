@@ -9,13 +9,14 @@ use tower_http::services::ServeDir;
 use crate::config::Config;
 
 pub async fn run_service() -> anyhow::Result<()> {
-    let config = Config::default();
+    let config = Config::from_env();
+    config.display();
 
     // build our application with a single route
     let port = config.port;
     let addr = std::net::SocketAddr::from(([0, 0, 0, 0], port));
     let mut asset_dir = config.base_directory;
-    asset_dir.push("/public");
+    asset_dir.push("public");
 
     let app = Router::new()
         .nest("/api", api::api_routing())

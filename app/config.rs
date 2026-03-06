@@ -1,5 +1,6 @@
 use std::{env, path::PathBuf};
 
+#[derive(Clone, Debug)]
 pub struct Config {
     pub port: u16,
     /// Path where expexted static asset file folders reside.
@@ -16,6 +17,10 @@ impl Config {
                 .expect("expected a valid u8 for PORT"),
             base_directory: try_from_env("BASE_DIR").into(),
         }
+    }
+
+    pub fn display(&self) {
+        println!("{self:?}");
     }
 }
 

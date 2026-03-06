@@ -9,7 +9,7 @@ use axum::{
 pub fn page_routing() -> Router {
     Router::new()
         .route("/", get(index))
-        .route("/software", get(software))
+        .route("/blog", get(blog))
 }
 
 #[derive(Template)]
@@ -17,22 +17,22 @@ pub fn page_routing() -> Router {
 struct BaseTemplate;
 
 #[derive(Template)]
-#[template(path = "software.html")]
-struct SoftwareTemplate<'a> {
+#[template(path = "index.html")]
+struct IndexTemplate<'a> {
     name: &'a str,
     counter: u16,
 }
 
 async fn index() -> impl IntoResponse {
-    let template = BaseTemplate;
-    HtmlTemplate(template)
-}
-
-async fn software() -> impl IntoResponse {
-    let template = SoftwareTemplate {
+    let template = IndexTemplate {
         name: "world",
         counter: 0,
     };
+    HtmlTemplate(template)
+}
+
+async fn blog() -> impl IntoResponse {
+    let template = BaseTemplate;
     HtmlTemplate(template)
 }
 
