@@ -1,0 +1,16 @@
+[package]
+name = "website-cli"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "website"
+path = "main.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+clap = { workspace = true }
+tokio = { workspace = true }
+
+website-app = { workspace = true }
+website-blog = { workspace = true }

@@ -1,0 +1,10 @@
+[package]
+name = "website-blog"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "website_blog"
+path = "lib.rs"
+
+[dependencies]

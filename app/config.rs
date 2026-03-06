@@ -1,7 +1,9 @@
-use std::env;
+use std::{env, path::PathBuf};
 
 pub struct Config {
     pub port: u16,
+    /// Path where expexted static asset file folders reside.
+    pub base_directory: PathBuf,
 }
 
 impl Config {
@@ -11,14 +13,20 @@ impl Config {
         Self {
             port: try_from_env("PORT")
                 .parse()
-                .expect("Expected a valid u8 for PORT"),
+                .expect("expected a valid u8 for PORT"),
+            base_directory: try_from_env("BASE_DIR").into(),
         }
     }
 }
 
 impl Default for Config {
     fn default() -> Self {
-        Self { port: 3000 }
+        let curr_dir = std::env::current_dir().expect("unexpected error getting current directory");
+
+        Self {
+            port: 3000,
+            base_directory: curr_dir,
+        }
     }
 }
 
@@ -29,6 +37,6 @@ fn ensure_load_env() {
 }
 
 fn try_from_env(name: &str) -> String {
-    let err = format!("Expected {name} in the environment");
+    let err = format!("expected {name} in the environment");
     env::var(name).expect(&err)
 }

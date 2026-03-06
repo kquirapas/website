@@ -1,0 +1,22 @@
+[package]
+name = "website-app"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "website_app"
+path = "lib.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = { workspace = true }
+askama = { workspace = true }
+axum = { workspace = true }
+clap = { workspace = true }
+dotenvy = { workspace = true }
+tokio = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
