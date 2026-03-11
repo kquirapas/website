@@ -1,7 +1,4 @@
-# Not so Mini, Minisite in Pure Rust
+# Website
 
-## Features
-
-- [ ] Authentication and Authorization
-- [ ] Content Management System
-- [ ] Observability
+- Blog Redirects
+- Personal Data Dashboards
