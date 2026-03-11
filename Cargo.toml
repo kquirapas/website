@@ -4,7 +4,8 @@ resolver = "3"
 members = [
 	"app",
 	"blog",
-	"cli"
+	"cli",
+	"fundata"
 ]
 
 [workspace.dependencies]
@@ -20,4 +21,5 @@ tracing = "0.1.40"
 tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
 
 website-app = { version = "0.1.0", path = "app" }
-website-blog = { version = "0.1.0", path = "blog" }
+website-blog = { version = "0.1.0", path = "api/blog" }
+website-fundata = { version = "0.1.0", path = "api/fundata" }
