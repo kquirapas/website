@@ -10,6 +10,7 @@ pub fn page_routing() -> Router {
     Router::new()
         .route("/", get(index))
         .route("/blog", get(blog))
+        .route("/design_system", get(design_system))
 }
 
 #[derive(Template)]
@@ -32,6 +33,11 @@ async fn index() -> impl IntoResponse {
 }
 
 async fn blog() -> impl IntoResponse {
+    let template = BaseTemplate;
+    HtmlTemplate(template)
+}
+
+async fn design_system() -> impl IntoResponse {
     let template = BaseTemplate;
     HtmlTemplate(template)
 }
