@@ -1,4 +1,7 @@
 # Website
 
-- Blog Redirects
-- Personal Data Dashboards
+# Setup
+
+```bash
+make
+```

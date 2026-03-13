@@ -3,9 +3,9 @@ resolver = "3"
 
 members = [
 	"app",
-	"blog",
-	"cli",
-	"fundata"
+	"api/blog",
+	"api/fundata",
+	"cli"
 ]
 
 [workspace.dependencies]
