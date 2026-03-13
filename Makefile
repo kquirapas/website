@@ -1,6 +1,6 @@
-.PHONY: tailwind
+.PHONY: tailwind watch cargo-watch tailwind-watch
 
-all: tailwind
+all: tailwind watch cargo-watch tailwind-watch
 
 tailwind:
 	./scripts/fetch-tailwind.sh latest
