@@ -1019,7 +1019,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "website-fundata"
+name = "website-data"
 version = "0.1.0"
 
 [[package]]
