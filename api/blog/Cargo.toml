@@ -1,10 +1,10 @@
 [package]
-name = "website-blog"
+name = "website-api-blog"
 version = "0.1.0"
 edition = "2024"
 
 [lib]
-name = "website_blog"
+name = "website_api_blog"
 path = "lib.rs"
 
 [dependencies]

@@ -3,7 +3,6 @@ resolver = "3"
 
 members = [
 	"app",
-	"api/admin",
 	"api/blog",
 	"api/data",
 	"cli",
@@ -21,8 +20,7 @@ tower-http = { version = "0.5.2", features = ["fs"] }
 tracing = "0.1.40"
 tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
 
-website-admin = { version = "0.1.0", path = "admin" }
 website-app = { version = "0.1.0", path = "app" }
-website-blog = { version = "0.1.0", path = "api/blog" }
-website-cli = { version = "0.1.0", path = "api/cli" }
-website-data = { version = "0.1.0", path = "api/data" }
+website-api-blog = { version = "0.1.0", path = "api/blog" }
+website-api-data = { version = "0.1.0", path = "api/data" }
+website-cli = { version = "0.1.0", path = "cli" }

@@ -4,6 +4,4 @@
 //! This is where external services are integrated
 //! and where middleware resides.
 pub mod admin;
-pub mod blog;
-pub mod data;
 pub mod html;

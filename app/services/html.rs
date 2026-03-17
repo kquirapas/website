@@ -6,13 +6,6 @@ use axum::{
     Router,
 };
 
-pub fn page_routing() -> Router {
-    Router::new()
-        .route("/", get(index))
-        .route("/blog", get(blog))
-        .route("/design_system", get(design_system))
-}
-
 #[derive(Template)]
 #[template(path = "base.html")]
 struct BaseTemplate;

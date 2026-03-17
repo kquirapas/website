@@ -988,7 +988,11 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ccf3ec651a847eb01de73ccad15eb7d99f80485de043efb2f370cd654f4ea44b"
 
 [[package]]
-name = "website-admin"
+name = "website-api-blog"
+version = "0.1.0"
+
+[[package]]
+name = "website-api-data"
 version = "0.1.0"
 
 [[package]]
@@ -1005,11 +1009,9 @@ dependencies = [
  "tower-http",
  "tracing",
  "tracing-subscriber",
+ "website-api-blog",
+ "website-api-data",
 ]
-
-[[package]]
-name = "website-blog"
-version = "0.1.0"
 
 [[package]]
 name = "website-cli"
@@ -1018,13 +1020,10 @@ dependencies = [
  "anyhow",
  "clap",
  "tokio",
+ "website-api-blog",
+ "website-api-data",
  "website-app",
- "website-blog",
 ]
-
-[[package]]
-name = "website-data"
-version = "0.1.0"
 
 [[package]]
 name = "windows-link"

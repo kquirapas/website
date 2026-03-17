@@ -1,10 +1,10 @@
 [package]
-name = "website-data"
+name = "website-api-data"
 version = "0.1.0"
 edition = "2024"
 
 [lib]
-name = "website_data"
+name = "website_api_data"
 path = "lib.rs"
 
 [dependencies]
