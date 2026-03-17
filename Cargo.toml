@@ -5,7 +5,7 @@ members = [
 	"app",
 	"api/admin",
 	"api/blog",
-	"api/fundata",
+	"api/data",
 	"cli",
 ]
 

@@ -1,13 +1,13 @@
 //! API Routing.
 //!
-//! Handles internal API responses and external API middleware.
+//! Handles internal API responses
 //!
-use axum::{http::StatusCode, response::IntoResponse, routing::get, Router};
+use axum::{http::StatusCode, response::IntoResponse};
 
-async fn health() -> impl IntoResponse {
+pub async fn health() -> impl IntoResponse {
     StatusCode::OK
 }
 
-async fn current_year() -> &'static str {
+pub async fn current_year() -> &'static str {
     "2026"
 }
