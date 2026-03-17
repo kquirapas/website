@@ -32,3 +32,4 @@ pub async fn run_service() -> anyhow::Result<()> {
         .context("error while starting server")?;
 
     Ok(())
+}
