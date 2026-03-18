@@ -1,6 +1,15 @@
-.PHONY: tailwind watch cargo-watch tailwind-watch
+.PHONY: rust tailwind watch cargo-watch tailwind-watch dev
 
-all: tailwind watch cargo-watch tailwind-watch
+all: tailwind rust
+
+clean:
+	cargo clean
+	rm -r ./bin
+	rm -r ./app/public/css/dist
+
+rust:
+	cargo build --release
+
 
 tailwind:
 	./scripts/fetch-tailwind.sh latest

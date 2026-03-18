@@ -17,6 +17,8 @@ pub async fn run(config: Config) -> Result<(), AppError> {
     let mut asset_dir = config.base_directory;
     asset_dir.push("public");
 
+    println!("{asset_dir:?}");
+
     let app = Router::new()
         .nest("/", index::routes())
         .nest("/admin", admin::routes())
