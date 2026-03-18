@@ -1,18 +1,16 @@
-mod config;
+pub mod config;
+mod error;
 mod routes;
 mod services;
 
-use anyhow::Context;
 use axum::Router;
+use error::AppError;
 use routes::{admin, blog, index};
 use tower_http::services::ServeDir;
 
 use crate::config::Config;
 
-pub async fn run_service() -> anyhow::Result<()> {
-    let config = Config::from_env();
-    config.display();
-
+pub async fn run(config: Config) -> Result<(), AppError> {
     // build our application with a single route
     let port = config.port;
     let addr = std::net::SocketAddr::from(([0, 0, 0, 0], port));
@@ -27,9 +25,7 @@ pub async fn run_service() -> anyhow::Result<()> {
 
     // run our app with hyper, listening globally on port 3000
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
-    axum::serve(listener, app)
-        .await
-        .context("error while starting server")?;
+    axum::serve(listener, app).await.unwrap();
 
     Ok(())
 }
