@@ -8,6 +8,10 @@ name = "website_api_data"
 path = "lib.rs"
 
 [dependencies]
+axum = { workspace = true }
+chrono = { workspace = true }
 directories = { workspace = true }
+serde = { workspace = true }
 sqlx = { workspace = true }
 thiserror = { workspace = true }
+tokio = { workspace = true }

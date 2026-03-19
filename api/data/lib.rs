@@ -1,5 +1,7 @@
 pub mod config;
 pub mod error;
+mod models;
+pub mod routes;
 mod utils;
 
 use config::Config;
