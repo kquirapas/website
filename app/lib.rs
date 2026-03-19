@@ -5,7 +5,7 @@ mod services;
 
 use axum::Router;
 use error::AppError;
-use routes::{admin, blog, index};
+use routes::routes;
 use tower_http::services::ServeDir;
 
 use crate::config::Config;
@@ -20,9 +20,7 @@ pub async fn run(config: Config) -> Result<(), AppError> {
     println!("{asset_dir:?}");
 
     let app = Router::new()
-        .nest("/", index::routes())
-        .nest("/admin", admin::routes())
-        .nest("/blog", blog::routes())
+        .nest("/", routes())
         .nest_service("/public", ServeDir::new(asset_dir));
 
     // run our app with hyper, listening globally on port 3000
