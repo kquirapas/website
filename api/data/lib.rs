@@ -1,14 +1,23 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+pub mod config;
+pub mod error;
+mod utils;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+use config::Config;
+use error::DataError;
+use sqlx::sqlite::SqlitePool;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+pub async fn run(config: Config) -> Result<(), DataError> {
+    let db_url = utils::get_db_url(&config.env);
+    let conn_string = format!("{db_url}?mode=rwc");
+
+    let pool = SqlitePool::connect(&conn_string)
+        .await
+        .map_err(|e| DataError::DatabaseError(e.to_string()))?;
+
+    sqlx::migrate!("./migrations")
+        .run(&pool)
+        .await
+        .map_err(|e| DataError::DatabaseError(e.to_string()))?;
+
+    Ok(())
 }
