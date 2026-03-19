@@ -1,5 +1,5 @@
 pub mod config;
-mod error;
+pub mod error;
 mod routes;
 mod services;
 
